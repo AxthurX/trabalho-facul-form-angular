@@ -1,0 +1,139 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Global icon font
+@import "./assets/fonts/feather/style.css";
+
+// // 3rd party plugins
+@import "~@mdi/font/css/materialdesignicons.min.css";
+@import "~perfect-scrollbar/css/perfect-scrollbar.css";
+@import "~highlight.js/styles/googlecode.css";
+@import "~ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css";
+@import "~ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css";
+@import "~animate.css/animate.min.css";
+@import "~@fullcalendar/common/main.min.css";
+@import "~@fullcalendar/daygrid/main.min.css";
+@import "~@fullcalendar/timegrid/main.min.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~simplemde/dist/simplemde.min.css";
+@import "../node_modules/metismenujs/scss/metismenujs";
+@import "~dropzone/dist/min/dropzone.min.css";
+@import "~quill/dist/quill.snow.css";
+@import "~angular-archwizard/styles/archwizard.css";
+@import "~simple-datatables/dist/style.css";
+@import "~@swimlane/ngx-datatable/index.css";
+@import "~@swimlane/ngx-datatable/themes/bootstrap.css";
+@import "~@swimlane/ngx-datatable/assets/icons.css";
+
+// NobleUI styles for LTR
+@import "./assets/scss/style";
+
+// NobleUI styles For RTL
+// @import "./assets/scss/style.rtl.css";
+$cor-padrao: #6571ff;
+
+#alinha {
+  display: flex;
+  margin-bottom: -16px;
+}
+
+#espaco {
+  margin-left: 50px;
+}
+
+.alinhar-direita {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.75rem;
+}
+
+.btn .margem-padrao {
+  margin-left: 5px !important;
+}
+
+.flex-auto {
+  flex: auto;
+}
+
+.min-vh-70 {
+  min-height: 70vh;
+}
+
+.cor-padrao {
+  color: $cor-padrao;
+}
+
+.input-padrao {
+  padding-left: 0.3rem;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.551);
+  box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.551);
+
+  &:focus {
+    border-bottom: 1px solid $cor-padrao;
+    box-shadow: 0 2px 2px -2px $cor-padrao;
+  }
+}
+
+.input-padrao:not(:placeholder-shown) {
+  border-bottom: 1px solid $cor-padrao;
+  box-shadow: 0 2px 2px -2px $cor-padrao;
+}
+
+.input-padrao:focus ~ label,
+.input-padrao:not(:placeholder-shown) ~ label {
+  color: $cor-padrao;
+  font-size: 14px;
+  transform: scale(0.75);
+  transition: 0.5s;
+  opacity: 0.9;
+}
+
+.label-padrao {
+  font-size: 14px;
+  bottom: 1.3em;
+  transition-property: all;
+  transition-duration: 0.5s;
+  text-wrap: nowrap;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
+.shadow-box {
+  box-shadow: 0px 4px 8px -6px #949494;
+}
+
+.table-scroll {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+  thead {
+    flex: 0 0 auto;
+    width: calc(100% - 0.9em);
+    display: table;
+    table-layout: fixed;
+  }
+  tbody {
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: scroll;
+    tr {
+      width: 100%;
+      display: table;
+      table-layout: fixed;
+    }
+  }
+}

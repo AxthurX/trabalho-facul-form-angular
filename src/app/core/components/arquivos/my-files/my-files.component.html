@@ -1,0 +1,27 @@
+<div class="card" *ngIf="arquivos.length > 0">
+  <div class="card-header">
+    Arquivos anexados
+  </div>
+  <div class="card-body">
+    <div id="content">
+      <ul class="timeline">
+        <li class="event" *ngFor="let item of arquivos" [attr.data-date]="item.date | date: 'dd/MM/yyyy HH:mm'">
+          <h5 class="title">
+            <app-icone [name]="'pessoa'"></app-icone> Enviado por: {{ item.usuario }}
+          </h5>
+          <p>
+            {{ item.filename }} - Tamanho {{ item.size / 1000 / 1000 | number: '1.2-2' }} mb
+          </p>
+
+          <button type="button" class="btn btn-primary btn-icon" (click)="open(item.url_completa)">
+            <i class="feather icon-download"></i>
+          </button>
+
+          <button type="button" class="btn btn-primary btn-icon" (click)="delete(item)">
+            <i class="feather icon-trash-2"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<app-drop-zone (droppedFiles)="onDroppedFiles($event)"></app-drop-zone>
+
+<div class="card" *ngIf="files.length > 0">
+  <div class="card-header">
+    Enviando anexos...
+  </div>
+  <div class="card-body">
+    <div id="content">
+      <ul class="timeline">
+        <li class="event" *ngFor="let f of files; let i = index">
+          <app-icone [name]="'anexo'"></app-icone> {{ f.file?.name }}
+          <button type="button" class="btn btn-icon-text btn-danger btn-sm" *ngIf="f.task == null; else uploading"
+            (click)="remove(i)">
+            <app-icone [name]="'excluir'"></app-icone>
+          </button>
+
+          <ng-template #uploading>
+            <button type="button" class="btn btn-danger btn-icon btn-sm" *ngIf="f.uploading | async"
+              (click)="cancelarERemover(f, i)">
+              <i class="feather icon-x"></i>
+            </button>
+            &nbsp;
+            &nbsp;
+            <span *ngIf="f.uploading | async">
+              <b>{{ f.percentage | async | number: '1.0-0' }}%</b>
+            </span>
+          </ng-template>
+
+          <app-icone *ngIf="(f.error | async) || (f.canceled | async)" [name]="'cancelar'"></app-icone>
+          <app-icone *ngIf="f.finishid | async" color="success" [name]="'ok'"></app-icone>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,131 @@
+<div class="row w-100 mx-0 auth-page" style="height: inherit;">
+  <div class="col-md-8 col-xl-6 mx-auto">
+    <div class="card">
+      <div class="row">
+        <div class="col-md-4 pe-md-0">
+          <div class="auth-side-wrapper" [ngStyle]="{ 'background-image': 'url(https://via.placeholder.com/219x452)' }">
+
+          </div>
+        </div>
+        <div class="col-md-8 ps-md-0">
+          <div class="auth-form-wrapper px-4 py-5">
+            <a routerLink="." class="nobleui-logo d-block mb-2">Noble<span>UI</span></a>
+            <h5 class="text-muted fw-normal mb-4">Create a free account.</h5>
+            <form class="forms-sample">
+              <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome" autocomplete="Nome" placeholder="nome" name="nome"
+                  [(ngModel)]="usuario.nome">
+              </div>
+
+              <div class="mb-3">
+                <label for="sobrenome" class="form-label">Sobrenome</label>
+                <input type="text" class="form-control" id="sobrenome" autocomplete="Sobrenome" placeholder="Sobrenome"
+                  name="sobrenome" [(ngModel)]="usuario.sobrenome">
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="usuario.email"
+                  name="email" autocomplete="off" mask="A*@A*.S">
+              </div>
+
+              <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senha" autocomplete="current-password" name="senha"
+                  placeholder="Password" [(ngModel)]="usuario.senha">
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label"> CEP </label>
+                <input class="form-control" placeholder="Cep" type="text" [(ngModel)]="usuario.cep"
+                  (ngModelChange)="onConsutarCEP(usuario)" mask="00000-000" name="cep" id="cep" maxlength="10" />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label"> Logradouro </label>
+                <input class="form-control" placeholder="Logradouro" [(ngModel)]="usuario.logradouro" type="text"
+                  name="logradouro" id="logradouro" maxlength="40" />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label"> Número </label>
+                <input class="form-control" placeholder="Numero" type="text" name="numero" id="numero" maxlength="8"
+                  [(ngModel)]="usuario.numero" />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label"> Complemento </label>
+                <input class="form-control" placeholder="Complemento" [(ngModel)]="usuario.complemento" type="text"
+                  name="complemento" id="complemento" maxlength="80" />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label"> UF </label>
+                <input class="form-control" placeholder="Uf" [(ngModel)]="usuario.uf" type="text" id="uf" name="uf">
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label"> Município </label>
+                <input class="form-control" placeholder="Município" [(ngModel)]="usuario.municipio" type="text"
+                  id="municipio" name="municipio">
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label"> Bairro </label>
+                <input class="form-control" placeholder="Bairro" [(ngModel)]="usuario.bairro" type="text" name="bairro"
+                  id="bairro" maxlength="60" />
+              </div>
+
+              <div class="mb-3 form-check-inline d-flex justify-content-center align-items-center">
+                <input class="form-check-input" type="radio" id="masculino" name="masculino" value="masculino"
+                  [(ngModel)]="usuario.sexo" (change)="onChange($event)" />
+                <label class="form-check-label" for="masculino">Masculino</label>
+
+                <input class="form-check-input" type="radio" id="feminino" name="feminino" value="feminino"
+                  [(ngModel)]="usuario.sexo" (change)="onChange($event)" />
+                <label class="form-check-label" for="feminino">Feminino</label>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Data de Nascimento</label>
+                <input class="form-control" placeholder="Data de nascimento" name="data_nascimento" mask="00/00/0000"
+                  (blur)="pegarIdade()" [(ngModel)]="usuario.data_nascimento">
+              </div>
+
+              <div class="mb-3">
+                <h5>Sua data de nascimento é: {{age}}</h5>
+              </div>
+
+              <div class="mb-3">
+                <label for="telefone" class="form-label">Telefone </label>
+                <input type="text" class="form-control" mask="(00) 0 0000-0000" placeholder="Telefone"
+                  [(ngModel)]="usuario.telefone" name="telefone" id="telefone" />
+              </div>
+
+              <div class="form-check mb-3">
+                <input type="checkbox" class="form-check-input" id="authCheck">
+                <label class="form-check-label" for="authCheck">
+                  Remember me
+                </label>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-primary me-2 mb-2 mb-md-0" (click)="onRegister($event)">
+                  Sign up
+                </button>
+                <button type="button" class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
+                  <i class="feather icon-twitter btn-icon-prepend"></i>
+                  Sign up with twitter
+                </button>
+                <button type="submit" class="btn btn-primary ms-2 mb-2 mb-md-0" (click)="ApagarTudo()">
+                  Apagar Tudo
+                </button>
+              </div>
+              <a routerLink="/auth/login" class="d-block mt-3 text-muted">Already a user? Sign in</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
